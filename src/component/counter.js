@@ -8,16 +8,18 @@ import {
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux'
 
-function counter(props) {
-  return (
-    <div style={{ marginTop: "10em" }}>
-      <div>Clicked: {props.count} times</div>
-      <hr />
-      <button onClick={props.onAsyncIncrement}>Async-Increment</button>
-      <button onClick={props.onIncrement}>Increment</button>
-      <button onClick={props.onDecrement}>Decrement</button>
-    </div>
-  );
+class counter extends React.Component {
+  render() {
+    return (
+      <div style={{ marginTop: "10em" }}>
+        <div>Clicked: {this.props.count} times</div>
+        <hr />
+        <button onClick={this.props.onAsyncIncrement}>Async-Increment</button>
+        <button onClick={this.props.onIncrement}>Increment</button>
+        <button onClick={this.props.onDecrement}>Decrement</button>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {

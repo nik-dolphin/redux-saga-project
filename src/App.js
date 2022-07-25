@@ -1,12 +1,15 @@
+import React from "react";
 import "./App.css";
 import Counter from "./component/counter";
 
-function App() {
-  return (
-    <div className="App">
-      <Counter />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Counter />
+      </div>
+    );
+  }
 }
 
 export default App;
