@@ -4,7 +4,7 @@ import {
   onIncrement,
   onDecrement,
   onAsyncIncrement,
-} from "../actions/counter-action";
+} from "../redux-saga/actions/index";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux'
 
