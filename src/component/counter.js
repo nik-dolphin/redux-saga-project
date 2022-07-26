@@ -6,17 +6,20 @@ import {
   onAsyncIncrement,
 } from "../redux-saga/actions/index";
 import { connect } from "react-redux";
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from "redux";
 
 class counter extends React.Component {
   render() {
     return (
       <div style={{ marginTop: "10em" }}>
-        <div>Clicked: {this.props.count} times</div>
+        <h1 style={{ marginBottom: "1em" }}>Redux-Saga</h1>
         <hr />
-        <button onClick={this.props.onAsyncIncrement}>Async-Increment</button>
-        <button onClick={this.props.onIncrement}>Increment</button>
-        <button onClick={this.props.onDecrement}>Decrement</button>
+        <div>Clicked: {this.props.count} times</div>
+        <div style={{padding: '10px'}}>
+          <button onClick={this.props.onAsyncIncrement} style={{padding: '10px', margin: '10px', cursor: 'pointer'}}>Async-Increment</button>
+          <button onClick={this.props.onIncrement} style={{padding: '10px', margin: '10px', cursor: 'pointer'}}>Increment</button>
+          <button onClick={this.props.onDecrement} style={{padding: '10px', margin: '10px', cursor: 'pointer'}}>Decrement</button>
+        </div>
       </div>
     );
   }
@@ -37,11 +40,14 @@ const mapStateToProps = (state) => {
 // };
 
 const mapDispachToProps = (dispatch) => {
-  return bindActionCreators({
-    onIncrement: onIncrement,
-    onDecrement: onDecrement,
-    onAsyncIncrement: onAsyncIncrement,
-  }, dispatch);
+  return bindActionCreators(
+    {
+      onIncrement: onIncrement,
+      onDecrement: onDecrement,
+      onAsyncIncrement: onAsyncIncrement,
+    },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispachToProps)(counter);
